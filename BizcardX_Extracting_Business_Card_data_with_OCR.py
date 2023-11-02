@@ -1,34 +1,4 @@
-{
-  "nbformat": 4,
-  "nbformat_minor": 0,
-  "metadata": {
-    "colab": {
-      "provenance": [],
-      "authorship_tag": "ABX9TyOiZGarINBn70oDhvwBEkqE",
-      "include_colab_link": true
-    },
-    "kernelspec": {
-      "name": "python3",
-      "display_name": "Python 3"
-    },
-    "language_info": {
-      "name": "python"
-    }
-  },
-  "cells": [
-    {
-      "cell_type": "markdown",
-      "metadata": {
-        "id": "view-in-github",
-        "colab_type": "text"
-      },
-      "source": [
-        "<a href=\"https://colab.research.google.com/github/MohammedHasan0898/BizcardX-Extracting-Business-Card-data-with-OCR/blob/main/BizcardX_Extracting_Business_Card_data_with_OCR.py\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
-      ]
-    },
-    {
-      "cell_type": "code",
-      "source": [
+
         "%%writefile bizcardx.py\n",
         "import pandas as pd\n",
         "import streamlit as st\n",
@@ -41,50 +11,49 @@
         "import os\n",
         "import matplotlib.pyplot as plt\n",
         "import re\n",
-        "\n",
-        "\n",
-        "\n",
+
+
         "icon = Image.open(\"C:/Users/admin/images/bizcard_icon.png\")\n",
-        "\n",
-        "\n",
+
+
         "# SETTING PAGE CONFIGURATIONS\n",
         "st.set_page_config(\n",
         "    page_title=\" Extracting Business Card Data with OCR \",\n",
         "    page_icon=icon,\n",
         "    layout=\"wide\",\n",
         "    initial_sidebar_state=\"expanded\")\n",
-        "\n",
-        "# Add custom CSS to adjust the layout\n",
-        "st.markdown(\n",
-        "    \"\"\"\n",
-        "    <style>\n",
-        "    .stApp {\n",
-        "        display: flex;\n",
-        "        flex-direction: column;\n",
-        "        align-items: flex-start;\n",
-        "    }\n",
-        "    .stApp > div:first-child {\n",
-        "        order: -1;\n",
-        "    }\n",
-        "    </style>\n",
-        "    \"\"\",\n",
-        "    unsafe_allow_html=True\n",
-        ")\n",
-        "\n",
-        "# Create a container for the icon and title\n",
-        "icon_url = \"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSv11x2suJu2zqPU8yxBof44oe-gfiE9wxDw&usqp=CAU\"\n",
-        "title = \"Extracting Business Card Data with OCR\"\n",
-        "st.markdown(\n",
-        "    f'<div><img src=\"{icon_url}\" alt=\"Icon\" style=\"height: 50px; margin-right: 10px;\">{title}</div>',\n",
-        "    unsafe_allow_html=True\n",
-        ")\n",
-        "\n",
-        "\n",
-        "#Title\n",
-        "st.title(\"Extracting Business Card Data with OCR\")\n",
-        "\n",
-        "\n",
-        "# SETTING-UP BACKGROUND IMAGE\n",
+       
+        # Add custom CSS to adjust the layout\n",
+        st.markdown(\n",
+            """,
+            <style>
+            .stApp {
+               display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .stApp > div:first-child {
+                order: -1;
+            }
+            </style>
+            """
+            unsafe_allow_html=True
+        
+        
+        # Create a container for the icon and title
+        icon_url = \"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSv11x2suJu2zqPU8yxBof44oe-gfiE9wxDw&usqp=CAU\"\n",
+        title = \"Extracting Business Card Data with OCR\"
+        st.markdown(\n",
+            f'<div><img src=\"{icon_url}\" alt=\"Icon\" style=\"height: 50px; margin-right: 10px;\">{title}</div>',
+            unsafe_allow_html=True
+        )
+      
+        
+        #Title
+        st.title(\"Extracting Business Card Data with OCR\")
+        
+
+        # SETTING-UP BACKGROUND IMAGE
         "def setting_bg():\n",
         "    st.markdown(f\"\"\"<style>.stApp {{\n",
         "                        background:url(\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT84jxS3JUAxw4zAOe3_uZ6Zd2VAk8HzF0ZTg&usqp=CAU\");\n",
